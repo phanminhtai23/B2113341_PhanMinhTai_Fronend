@@ -5,7 +5,10 @@ class ContactService {
     this.api = createApiClient(baseUrl);
 }
 async getAll() {
-    return (await this.api.get("/")).data;
+    // return (await this.api.get("/")).data;
+    const response = await this.api.get("/");
+    console.log("Request URL:", response.config.url); // Kiểm tra URL
+    return response.data;
 } 
 
 async create(data) {

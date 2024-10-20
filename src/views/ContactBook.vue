@@ -45,16 +45,17 @@
 </template>
 
 <script>
+
 import ContactCard from "@/components/ContactCard.vue";
 import InputSearch from "@/components/InputSearch.vue";
 import ContactList from "@/components/ContactList.vue";
-import ContactService from "@/services/contact.service";
+import ContactService from '@/services/contact.service';
 
 export default {
     components: {
-    ContactCard,
-    InputSearch,
-    ContactList,
+        ContactCard,
+        InputSearch,
+        ContactList,
     },
     data() {  
         return {   
@@ -94,13 +95,13 @@ export default {
     methods: { 
         async retrieveContacts() {   
             try {    
-                this.contacts = await ContactService.getAll();   
+                this.contacts = await ContactService.getAll(); 
             } catch (error) {    
                 console.log(error);   
             }  
         },
 
-        refreshList() {   
+        refreshList() {
             this.retrieveContacts();   
             this.activeIndex = -1;  
         },
